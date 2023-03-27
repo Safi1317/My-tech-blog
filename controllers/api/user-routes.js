@@ -12,7 +12,7 @@ router.post("/login", async (req, res) => {
         email: req.body.email,
       },
     });
-
+    console.log("dbUserData is", dbUserData);
     if (!dbUserData) {
       res
         .status(400)
@@ -20,10 +20,7 @@ router.post("/login", async (req, res) => {
       return;
     }
 
-    const validPassword = await bcrypt.compare(
-      req.body.password,
-      dbUserData.password
-    );
+    const validPassword = await dbUserData.checkPassword(req.body.password);
 
     if (!validPassword) {
       res
@@ -31,7 +28,7 @@ router.post("/login", async (req, res) => {
         .json({ message: "Incorrect email or password. Please try again!" });
       return;
     }
-
+    console.log("Valid password is", validPassword);
     req.session.save(() => {
       req.session.loggedIn = true;
 
