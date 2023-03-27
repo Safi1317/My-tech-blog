@@ -4,7 +4,8 @@ const bcrypt = require("bcrypt");
 const withAuth = require("../../utils/helpers");
 
 // Login
-router.get("/", async (req, res) => {
+router.post("/login", async (req, res) => {
+  console.log("hit login route");
   try {
     const dbUserData = await User.findOne({
       where: {
