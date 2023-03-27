@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { user, post, comment } = require("../models");
 const withAuth = require("../utils/helpers");
-router.get("/", withAuth, async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     res.render("homepage");
   } catch (err) {
