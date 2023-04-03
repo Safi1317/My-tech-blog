@@ -1,11 +1,9 @@
 const loginFormHandler = async (event) => {
   event.preventDefault();
-  $("#signupusername").toggle();
 
   const email = document.querySelector("#email-login").value.trim();
   const password = document.querySelector("#password-login").value.trim();
-  console.log(email);
-  console.log(password);
+
   if (email && password) {
     const response = await fetch("/api/users/login", {
       method: "POST",
@@ -24,10 +22,10 @@ const loginFormHandler = async (event) => {
 const signupFormHandler = async (event) => {
   event.preventDefault();
 
-  const username = document.querySelector("#username").value.trim();
-  const email = document.querySelector("#email-login").value.trim();
-  const password = document.querySelector("#password-login").value.trim();
-  console.log(username);
+  const username = document.querySelector("#username-signup").value.trim();
+  const email = document.querySelector("#email-signup").value.trim();
+  const password = document.querySelector("#password-signup").value.trim();
+
   if (username && email && password) {
     const response = await fetch("/api/users", {
       method: "POST",
@@ -43,13 +41,10 @@ const signupFormHandler = async (event) => {
   }
 };
 
-document.querySelector("#loginbtn").addEventListener("click", loginFormHandler);
+document
+  .querySelector(".login-form")
+  .addEventListener("submit", loginFormHandler);
 
 document
-  .querySelector("#signupbtn")
-  .addEventListener("click", signupFormHandler);
-
-// const usernametoggle = async (event) => {
-//   event.preventDefault();
-//   $("#username").toggle();
-// };
+  .querySelector(".signup-form")
+  .addEventListener("submit", signupFormHandler);
