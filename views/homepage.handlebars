@@ -1,3 +1,16 @@
-<P>homepage!!!!</P>
+<section class="posts d-flex flex-column gap-2">
 
-<script src="./js/logout.js"></script>
+	<div class="posts-header d-flex">
+
+		<h2 class="flex-none d-inline">Posts</h2>
+		<span class="m-auto"></span>
+		<button class="btn btn-outline-primary">
+		<a href="/post">new post</a>
+		</button>
+	</div>
+
+	{{#each posts as |post|}}
+		{{> posts}}
+	{{/each}}
+
+</section>

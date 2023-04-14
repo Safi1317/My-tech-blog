@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "seed": "node seeds/index.js"
+    "seed": "node seeds/index.js",
+    "dev": "nodemon  -w controller -w models -w db -w views --exec \"npm start\""
   },
   "repository": {
     "type": "git",
@@ -29,5 +30,8 @@
     "mysql2": "^3.2.0",
     "path": "^0.12.7",
     "sequelize": "^6.29.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
   }
 }
