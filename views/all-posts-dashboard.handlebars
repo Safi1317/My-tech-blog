@@ -1,15 +1,8 @@
 <div class="row">
-    <div class="col-auto">
-        {{#if loggedIn}}
-        <h2>Welcome, {{user.username}}!</h2>
-        {{/if}}
-    </div>
+	{{#each posts}}
+		<a class="list-item flex-row justify-space-between" href="/dashboard/edit/{{id}}">
+			<span>{{title}}</span>
+			<span>{{format_date createdAt}}</span>
+		</a>
+	{{/each}}
 </div>
-<br>
-{{#if posts.length}}
-<div class="card flex-column">
-    {{#each posts as |post|}}
-    {{>edit post}}
-    {{/each}}
-</div>
-{{/if}}

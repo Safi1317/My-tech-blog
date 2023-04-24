@@ -24,14 +24,6 @@ User.init(
 				isAlphanumeric: true,
 			},
 		},
-		email: {
-			type: DataTypes.STRING,
-			allowNull: false,
-			unique: true,
-			validate: {
-				isEmail: true,
-			},
-		},
 		password: {
 			type: DataTypes.STRING,
 			allowNull: false,
@@ -48,10 +40,7 @@ User.init(
 				return newUserData;
 			},
 			beforeUpdate: async (updatedUserData) => {
-				updatedUserData.password = await bcrypt.hash(
-					updatedUserData.password,
-					10
-				);
+				updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
 				return updatedUserData;
 			},
 		},
@@ -59,7 +48,7 @@ User.init(
 		timestamps: false,
 		freezeTableName: true,
 		underscored: true,
-		modelName: "user",
+		modelName: "User",
 	}
 );
 
