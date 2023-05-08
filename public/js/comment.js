@@ -17,7 +17,7 @@ async function commentFormHandler(event) {
 			},
 		});
 		console.log(comment_text);
-		// document.location.reload();
+		document.location.reload();
 	}
 }
 

@@ -2,6 +2,14 @@ const router = require("express").Router();
 const { Post } = require("../../models/");
 const withAuth = require('../../utils/auth');
 
+//show posts with form to add new post 
+router.get('/', async (req, res) => {
+	//fetch all posts , that i have made
+	const posts = await Post.findAll()
+
+	res.render('posts', { posts });
+})
+
 // create
 router.post("/", withAuth, async (req, res) => {
 	console.log(req.body);
@@ -40,7 +48,7 @@ router.put("/:id", withAuth, async (req, res) => {
 // delete
 router.delete("/:id", withAuth, async (req, res) => {
 	try {
-		const [affectedRows] = Post.destroy({
+		const affectedRows =await Post.destroy({
 			where: {
 				id: req.params.id,
 			},

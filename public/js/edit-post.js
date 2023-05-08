@@ -1,8 +1,8 @@
 async function editFormHandler(event) {
     event.preventDefault();
 
-    const title = document.querySelector('input[name="post-title"]').value.trim();
-    const content = document.querySelector('input[name="content"]').value.trim();
+    const title = document.querySelector('input[name="title"]').value.trim();
+    const content = document.querySelector('[name="content"]').value.trim();
     console.log(title);
     console.log(content);
 
@@ -30,4 +30,4 @@ async function editFormHandler(event) {
 
 }
 
-document.querySelector('.edit-post-form').addEventListener('submit', editFormHandler);
+document.querySelector('#edit-post-form').addEventListener('submit', editFormHandler);

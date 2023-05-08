@@ -1,4 +1,6 @@
-<div class="posts">
+<div class="row">
+
+<div class="posts col-12">
 	{{#each posts}}
 		<article class="card">
 			<div class="card-header flex-row justify-space-between">
@@ -13,8 +15,11 @@
 				</div>
 			</div>
 			<div class="card-body">
-				{{body}}
+				{{content}}
 			</div>
 		</article>
 	{{/each}}
+</div>
+
+
 </div>

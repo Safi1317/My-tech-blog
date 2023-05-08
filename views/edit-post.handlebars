@@ -6,17 +6,17 @@
 			<input
 				type="text"
 				class="form-input"
-				name="post-title"
-				value="{{post.post_title}}"
+				name="title"
+				value="{{post.title}}"
 			/>
 		</div>
 		<div>
 			<label class="form-label">Content:</label>
 			<textarea
-				name="post-body"
+				name="content"
 				class="form-textarea form-input"
 				data-number="8"
-			>{{post.post_body}}</textarea>
+			>{{post.content}}</textarea>
 		</div>
 		<button class="btn btn-primary" type="submit">Edit</button>
 		<input type="hidden" name="post-id" value="{{post.id}}" />
@@ -25,4 +25,5 @@
 		<button class="btn btn-primary" type="click" id="delete-btn">Delete</button>
 	</div>
 </div>
-<script src="/js/edit.js"></script>
+<script src="/js/edit-post.js"></script>
+<script src="/js/delete-post.js"></script>

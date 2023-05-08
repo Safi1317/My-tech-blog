@@ -17,6 +17,7 @@
 				<ul class="navlinks col-lg-8 col-xs-12">
 					<li><a href="/">Home</a></li>
 					<li><a href="/dashboard">Dashboard</a></li>
+					{{!-- <li><a href="/posts">Posts</a></li> --}}
 					<li>
 						<button id="logout" class="btn btn-outline-secondary">Logout</button>
 					</li>
@@ -29,8 +30,14 @@
 			<aside>
 				<h1 class="title"><a href="/dashboard">Your Dashboard</a></h1>
 			</aside>
-			<div class="activity">
-				{{{body}}}
+			<div class="content-area row">
+
+				<div class="activity col-9">
+					{{{body}}}
+				</div>
+				<div class="new-post-form col">
+					{{>new-post}}
+				</div>
 			</div>
 		</main>
 

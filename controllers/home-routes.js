@@ -1,6 +1,12 @@
 const router = require('express').Router();
 const { Post, Comment, User } = require('../models/');
 
+const passLocals = ({ req, ...res }) => {
+  const loggedIn = req.session.loggedIn
+  console.log(loggedIn)
+  return { loggedIn, ...res }
+}
+
 // get all posts for homepage
 router.get('/', async (req, res) => {
   try {
@@ -10,11 +16,13 @@ router.get('/', async (req, res) => {
 
     const posts = postData.map((post) => post.get({ plain: true }));
 
-    res.render('all-posts', { posts });
+    res.render('all-posts', passLocals({ req, posts }));
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
+
 
 // get single post
 router.get('/post/:id', async (req, res) => {
@@ -31,8 +39,7 @@ router.get('/post/:id', async (req, res) => {
 
     if (postData) {
       const post = postData.get({ plain: true });
-
-      res.render('single-post', { post });
+      res.render('single-post', passLocals({ req, post }));
     } else {
       res.status(404).end();
     }
