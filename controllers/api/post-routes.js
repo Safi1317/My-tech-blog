@@ -2,9 +2,9 @@ const router = require("express").Router();
 const { Post } = require("../../models/");
 const withAuth = require('../../utils/auth');
 
-//show posts with form to add new post 
+
 router.get('/', async (req, res) => {
-	//fetch all posts , that i have made
+	
 	const posts = await Post.findAll()
 
 	res.render('posts', { posts });
